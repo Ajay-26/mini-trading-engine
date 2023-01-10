@@ -1,4 +1,15 @@
-#include "trading_engine.hpp"
+#include "trading_engine.h"
+
+int TradingEngine::return_ticket_num(){
+	this->order_ticket++;
+	return this->order_ticket - 1;
+}
+
+void TradingEngine::add_order(std::string input_str){
+	std::vector<std::string> inputs = parse_input(input_str);
+
+}
+
 
 void TradingEngine::receive_input(std::string input_str){
 	//Receives a single line of inputs
@@ -29,6 +40,8 @@ void TradingEngine::receive_input(std::string input_str){
 		price_str = inputs[i+2];
 		n_shares = std::stoi(n_share_str);
 		value_per_share = std::stof(price_str);
+		Order *o = new Order(this->return_ticket_num(), share_name, curr_action == "BUY", value_per_share, n_shares);
+		this->order_list[share_name].push_back(o);
 		this->share_names_list.push_back(share_name);
 		this->action_list.push_back(curr_ac);
 		this->n_shares_list.push_back(n_shares);

@@ -1,4 +1,4 @@
-#include "user.hpp"
+#include "user.h"
 
 User::User(std::string u_name, std::string p_word){
 	this->username = u_name;

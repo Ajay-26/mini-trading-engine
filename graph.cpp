@@ -1,4 +1,4 @@
-#include "graph.hpp"
+#include "graph.h"
 
 template <typename T>
 node<T>::node(T p_data, int idx){
